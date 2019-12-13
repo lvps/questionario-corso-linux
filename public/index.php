@@ -147,6 +147,10 @@
 					</tbody>
 				</table>
 			</div>
+			<div class="form-group">
+				<label for="Comment">Hai altri commenti o suggerimenti? C'è qualche argomento che avresti preferito approfondire di più? (opzionale)</label>
+				<textarea name="Comment" id="Comment" class="form-control" maxlength="10000" rows="7"></textarea>
+			</div>
 		</div>
 		<div class="large-form-group" data-page="2">
 			<h3>Domande di comprensione</h3>
