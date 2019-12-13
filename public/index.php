@@ -65,6 +65,7 @@
 		<div class="large-form-group" data-page="0">
 			<h3>Informazioni personali</h3>
 			<p>Compilare il questionario vale come richiesta dell'attestato di frequenza, che verrà spedito via email a tutti coloro che hanno raggiunto le presenze necessarie. Ringraziamo in ogni caso chi vorrà compilarlo pur non avendo i requisiti per conseguire l'attestato.</p>
+			<p>C'è tempo <strong>fino all'8 gennaio</strong> per compilare il questionario. Gli attestati verranno spediti <strong>a partire da metà gennaio</strong>.</p>
 			<p>Iniziamo con alcune informazioni personali.</p>
 			<div class="form-group row">
 				<label for="name" class="col-sm-2 col-form-label">Nome</label>
