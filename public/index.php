@@ -246,9 +246,9 @@
 				<label class="form-check-label" for="consent">Acconsento al trattamento dei dati personali</label>
 			</div>
 		</div>
-		<button class="btn btn-outline-secondary d-none" id="btn-prev-page">Pagina precedente</button>
 		<button class="btn btn-primary d-none" id="btn-next-page">Pagina successiva</button>
 		<button id="btn-submit" class="btn btn-primary my-3" type="submit">Invia</button>
+		<button class="btn btn-outline-secondary d-none" id="btn-prev-page">Pagina precedente</button>
 	</form>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
@@ -278,6 +278,10 @@
 		changePage(0);
 
 		function changePage(to, alwaysSubmit) {
+			if(to < 0 || to >= pages.length) {
+				return;
+			}
+
 			pages[currentPage].classList.add("d-none");
 			pages[to].classList.remove("d-none");
 			currentPage = to;
