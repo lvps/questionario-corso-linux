@@ -20,7 +20,7 @@
 <div class="container">
 	<h1>Risposte inviate!</h1>
 	<p>Grazie per aver compilato il questionario, se hai raggiunto i requisiti riceverai l'attestato di frequenza tra qualche giorno.</p>
-	<p>In caso di problemi puoi scrivere a <?= base64_decode(strrev('gC0lmLvRXas9GcukGduVGZ1R3cAhXdulGb') . '==') ?></p>
+	<p>In caso di problemi puoi scrivere a <?= base64_decode(strrev('0lmLvRXas9GcukGduVGZ1R3cAhXdulGb')) ?></p>
 </div>
 </body>
 </html>

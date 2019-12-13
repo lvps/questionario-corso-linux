@@ -17,7 +17,7 @@
 			$s->execute();
 
 			$s = $db->prepare('INSERT INTO Answers(`CourseID`, Submitted, Data) VALUES (:id, :submitted, :data)');
-			$s->bindValue(':id', $name, SQLITE3_INTEGER);
+			$s->bindValue(':id', 1, SQLITE3_INTEGER);
 			$s->bindValue(':submitted', time(), SQLITE3_INTEGER);
 			$s->bindValue(':data', json_encode($_POST), SQLITE3_TEXT);
 			$s->execute();
@@ -52,7 +52,7 @@
 
 <div class="container">
 	<form method="post">
-		<div class="large-form-group">
+		<div class="large-form-group" data-page="0">
 			<h3>Informazioni personali</h3>
 			<p>Compilare il questionario vale come richiesta dell'attestato di frequenza, che verrà spedito via email a tutti coloro che hanno raggiunto le presenze necessarie. Ringraziamo in ogni caso chi vorrà compilarlo pur non avendo i requisiti per conseguire l'attestato.</p>
 			<p>Iniziamo con alcune informazioni personali.</p>
@@ -71,7 +71,7 @@
 						class="form-text text-muted help-block col-sm-10">Lo stesso indirizzo email che hai usato per iscriverti, se possibile.</small>
 			</div>
 		</div>
-		<div class="large-form-group">
+		<div class="large-form-group" data-page="1">
 			<?php
 			require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Topic.php';
 			$topics = [
@@ -127,7 +127,7 @@
 							?>
 							<td><?=$summary?></td>
 							<?php foreach($votes as $vote => $description): ?>
-								<td><input required class="form-check-input" type="radio" name="<?=$id?>[]"
+								<td><input required class="form-check-input" type="radio" name="<?=$id?>"
 											id="<?=$id?>+<?=$vote?>" value="<?=$vote?>"
 											aria-label="<?="$summary: voto $vote, $description"?>"
 											title="<?=$description?>"></td>
@@ -138,7 +138,7 @@
 				</table>
 			</div>
 		</div>
-		<div class="large-form-group">
+		<div class="large-form-group" data-page="2">
 			<h3>Domande di comprensione</h3>
 			<?php
 			$questions = [
@@ -207,7 +207,7 @@
 				<p class="col-12"><?=$question?></p>
 				<?php foreach($answers as $answer): ?>
 					<div class="form-check">
-						<input class="form-check-input" type="radio" name="<?=$question?>[]"
+						<input required class="form-check-input" type="radio" name="<?=$question?>"
 								id="<?=$question?>+<?=$answer?>" value="<?=$answer?>">
 						<label class="form-check-label" for="<?=$question?>+<?=$answer?>">
 							<?=$answer?>
@@ -215,7 +215,7 @@
 					</div>
 				<?php endforeach; ?>
 					<div class="form-check">
-						<input class="form-check-input" type="radio" name="<?=$question?>[]" id="<?=$question?>-unknown" value="Non lo so">
+						<input required class="form-check-input" type="radio" name="<?=$question?>" id="<?=$question?>-unknown" value="Non lo so">
 						<label class="form-check-label" for="<?=$question?>-unknown">
 							Non lo so
 						</label>
@@ -223,15 +223,17 @@
 				</div>
 			<?php endforeach; ?>
 		</div>
-		<div class="form-group-large">
+		<div class="large-form-group" data-page="3">
 			<h3>Consenso al trattamento dei dati</h3>
 			<p>Acconsenti al <a href="tos.php">trattamento dei dati personali</a> come delineato nel documento relativo?</p>
 			<div class="form-check form-group-row">
-				<input class="form-check-input" type="checkbox" id="consent" name="consent" value="yes">
+				<input required class="form-check-input" type="checkbox" id="consent" name="consent" value="yes">
 				<label class="form-check-label" for="consent">Acconsento al trattamento dei dati personali</label>
 			</div>
 		</div>
-	<button class="btn btn-primary my-3" type="submit">Invia</button>
+		<button class="btn btn-outline-secondary d-none" id="btn-prev-page">Pagina precedente</button>
+		<button class="btn btn-primary d-none" id="btn-next-page">Pagina successiva</button>
+		<button id="btn-submit" class="btn btn-primary my-3" type="submit">Invia</button>
 	</form>
 </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"

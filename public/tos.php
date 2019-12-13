@@ -19,7 +19,11 @@
 
 <div class="container">
 	<h1>Trattamento dei dati personali</h1>
-	<p>I dati verranno trattati in qualche modo.</p>
+	<p>Vengono raccolti dati personali (nome, cognome, indirizzo email) e dati sul gradimento e sulla comprensione degli argomenti. I dati personali e i dati sul gradimento e la comprensione vengono memorizzati in maniera separata, non è possibile risalire ai dati personali da quelli.</p>
+	<p>I dati personali saranno usati per l'invio degli attestati di frequenza. La compilazione e l'invio del questionario corrisponde a una richiesta dell'attestato di frequenza, per tutte le persone che hanno i requisiti necessari.</p>
+	<p>Non viene eseguita profilazione né tracciamento degli utenti né trattamento dei dati in forma automatica, ad eccezione dell'inserimento di tali dati in un database o foglio di calcolo in modo da poterli confrontare con gli elenchi di firme dei presenti. Non utilizziamo nemmeno i cookie, su questo sito.</p>
+	<p>I titolari del trattamento dei dati sono l'associazione non riconosciuta <a href="http://linux.studenti.polito.it">NetStudent</a> e l'associazione non riconosciuta <a href="http://weeeopen.polito.it">WEEE Open</a>.</p>
+	<p>Per rettifica o cancellazione dei dati personali o per ottenere una copia dei dati personali è possibile rivolgersi all'indirizzo email <?= base64_decode(strrev('0lmLvRXas9GcA5WZw9WZlV2d')) ?> o <?= base64_decode(strrev('0lmLvRXas9GcukGduVGZ1R3cAhXdulGb')) ?>.</p>
 </div>
 </body>
 </html>
