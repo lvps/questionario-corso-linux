@@ -23,6 +23,7 @@
 	<p>I dati personali saranno usati per l'invio degli attestati di frequenza. La compilazione e l'invio del questionario corrisponde a una richiesta dell'attestato di frequenza, per tutte le persone che hanno i requisiti necessari.</p>
 	<p>Non viene eseguita profilazione né tracciamento degli utenti né trattamento dei dati in forma automatica, ad eccezione dell'inserimento di tali dati in un database o foglio di calcolo in modo da poterli confrontare con gli elenchi di firme dei presenti. Non utilizziamo nemmeno i cookie, su questo sito.</p>
 	<p>I titolari del trattamento dei dati sono l'associazione non riconosciuta <a href="http://linux.studenti.polito.it">NetStudent</a> e l'associazione non riconosciuta <a href="http://weeeopen.polito.it">WEEE Open</a>.</p>
+	<p>I dati verranno conservati in Paesi membri dell'Unione Europea o in Svizzera. La Svizzera è un Paese che la Commissione Europea ha ritenuto adeguato per il trasferimento di dati personali.</p>
 	<p>Per rettifica o cancellazione dei dati personali o per ottenere una copia dei dati personali è possibile rivolgersi all'indirizzo email <?= base64_decode(strrev('0lmLvRXas9GcA5WZw9WZlV2d')) ?> o <?= base64_decode(strrev('0lmLvRXas9GcukGduVGZ1R3cAhXdulGb')) ?>.</p>
 </div>
 </body>
