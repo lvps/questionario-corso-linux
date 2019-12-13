@@ -14,13 +14,23 @@
 			$s->bindValue(':n', $name, SQLITE3_TEXT);
 			$s->bindValue(':s', $surname, SQLITE3_TEXT);
 			$s->bindValue(':e', $email, SQLITE3_TEXT);
-			$s->execute();
+			$result = $s->execute();
+			if($result === false) {
+				header('Content-Type: text/html; charset=utf-8');
+				echo $db->lastErrorMsg();
+				exit(1);
+			}
 
 			$s = $db->prepare('INSERT INTO Answers(`CourseID`, Submitted, Data) VALUES (:id, :submitted, :data)');
 			$s->bindValue(':id', 1, SQLITE3_INTEGER);
 			$s->bindValue(':submitted', time(), SQLITE3_INTEGER);
 			$s->bindValue(':data', json_encode($_POST), SQLITE3_TEXT);
-			$s->execute();
+			$result = $s->execute();
+			if($result === false) {
+				header('Content-Type: text/html; charset=utf-8');
+				echo $db->lastErrorMsg();
+				exit(1);
+			}
 
 			header('Location: /done.php');
 			http_response_code(303);
