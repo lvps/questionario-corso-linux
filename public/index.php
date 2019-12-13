@@ -242,6 +242,74 @@
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
 		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
 		crossorigin="anonymous"></script>
+<script>
+	(function() {
+		"use strict";
+
+		let next = document.getElementById("btn-next-page");
+		let prev = document.getElementById("btn-prev-page");
+		let submit = document.getElementById("btn-submit");
+		let pages = document.getElementsByClassName("large-form-group");
+
+		if(typeof next.classList === "undefined" || typeof next.closest === "undefined" || typeof next.scrollIntoView === "undefined") {
+			// Old browsers
+			return;
+		}
+
+		let currentPage = 0;
+		for(let i = 1; i < pages.length; i++) {
+			pages[i].classList.add("d-none");
+		}
+		changePage(0);
+
+		function changePage(to, alwaysSubmit) {
+			pages[currentPage].classList.add("d-none");
+			pages[to].classList.remove("d-none");
+			currentPage = to;
+
+			if(currentPage >= pages.length - 1) {
+				next.classList.add("d-none");
+				prev.classList.remove("d-none");
+				submit.classList.remove("d-none");
+			} else if(currentPage === 0) {
+				next.classList.remove("d-none");
+				prev.classList.add("d-none");
+				submit.classList.add("d-none");
+			} else {
+				next.classList.remove("d-none");
+				prev.classList.remove("d-none");
+				submit.classList.add("d-none");
+			}
+			if(alwaysSubmit) {
+				submit.classList.remove("d-none");
+			}
+
+			return pages[currentPage];
+		}
+
+		next.addEventListener('click', function(ev) {
+			ev.preventDefault();
+			changePage(currentPage + 1).scrollIntoView();
+		});
+
+		prev.addEventListener('click', function(ev) {
+			ev.preventDefault();
+			changePage(currentPage - 1).scrollIntoView();
+		});
+
+		submit.addEventListener('click', function(ev) {
+			let invalid = document.querySelector('input:invalid');
+			if(invalid !== null) {
+				let closest = invalid.closest(".large-form-group");
+				if(closest !== null) {
+					changePage(parseInt(closest.dataset.page), true);
+					invalid.scrollIntoView();
+				}
+			}
+		});
+
+	}());
+</script>
 </body>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
 		integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
