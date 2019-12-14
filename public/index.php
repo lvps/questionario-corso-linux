@@ -205,9 +205,9 @@
 					'È rilasciato pubblicamente e gratuitamente e può essere modificato da chiunque',
 					'Non so cosa sia il codice sorgente',
 				],
-				'Il comando <code>ls &gt; cartelle.txt</code>...'                                             => [
-					'Crea un collegamento al file cartelle.txt',
-					'Salva nel file cartelle.txt un elenco di cartelle',
+				'Il comando <code>ls &gt; esempio.txt</code>...'                                             => [
+					'Crea un collegamento al file esempio.txt',
+					'Salva nel file esempio.txt un elenco di file e cartelle',
 					'Restituisce un errore, utilizzare &gt; è errato in quanto bisogna utilizzare &gt;&gt; in questo caso',
 					'Restituisce un errore, il terminale si aspetta il nome di un comando dopo &gt; e non il nome di un file',
 				],
